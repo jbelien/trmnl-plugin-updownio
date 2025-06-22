@@ -12,7 +12,7 @@ custom_fields:
     name: About This Plugin
     field_type: author_bio
     description: <a href="https://updown.io/" target="_blank">updown.io</a> plugin was created by Jonathan Beliën.
-    github_url: https://github.com/jbelien
+    github_url: https://github.com/jbelien/trmnl-plugin-updownio
     learn_more_url: https://jbelien.be/
     email_address: dev@jbelien.mozmail.com
   - keyname: api_key
