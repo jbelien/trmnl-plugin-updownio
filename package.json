@@ -7,6 +7,7 @@
     "plugins": ["@shopify/prettier-plugin-liquid"]
   },
   "scripts": {
-    "format": "prettier --write '**/*.{liquid,md,yml}'"
+    "prettier": "prettier --check '**/*.{liquid,md,yml}'",
+    "prettier:fix": "prettier --write '**/*.{liquid,md,yml}'"
   }
 }
