@@ -1,0 +1,101 @@
+<div class="layout layout--row">
+  {% assign enabled = data | where: "enabled", true | sort: "down_since" %}
+  <div class="column">
+    {% for item in enabled limit: 9 %}
+    <div class="item">
+      <div class="meta">
+        <span class="index">{{ forloop.index }}</span>
+      </div>
+      <div class="content">
+        <span class="title title--small">
+          {% if item.alias != "" %}
+          {{ item.alias }} - 
+          {% endif %}
+          {{ item.url | remove_first: 'https://' }}
+        </span>
+        <div class="flex">
+          <div class="flex gap--xsmall">
+            {% if item.down == true %}
+            <span class="label label--small label--outline bg--gray-6">Up</span>
+            <span class="label label--small label--inverted">Down</span>
+            {% else %}
+            <span class="label label--small label--inverted">Up</span>
+            <span class="label label--small label--outline bg--gray-6">Down</span>
+            {% endif %}
+          </div>
+          <span class="label label--small">
+            {% if item.down == true %}
+            Since {{ item.down_since | l_date: "%e %b %Y", trmnl.user.locale }} {{ item.down_since | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M:%S" }}
+            {% else %}
+            Since {{ item.up_since | l_date: "%e %b %Y", trmnl.user.locale }} {{ item.up_since | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M:%S" }}
+            {% endif %}
+          </span>
+          {% if item.ssl.valid != true %}
+          <span class="label label--small label--outline">
+            SSL not valid
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="column">
+    {% for item in enabled limit: 9 offset: continue %}
+    <div class="item">
+      <div class="meta">
+        <span class="index">{{ forloop.index | plus: 9 }}</span>
+      </div>
+      <div class="content">
+        <span class="title title--small">
+          {% if item.alias != "" %}
+          {{ item.alias }} - 
+          {% endif %}
+          {{ item.url | remove_first: 'https://' }}
+        </span>
+        <div class="flex">
+          <div class="flex gap--xsmall">
+            {% if item.down == true %}
+            <span class="label label--small label--outline bg--gray-6">Up</span>
+            <span class="label label--small label--inverted">Down</span>
+            {% else %}
+            <span class="label label--small label--inverted">Up</span>
+            <span class="label label--small label--outline bg--gray-6"">Down</span>
+            {% endif %}
+          </div>
+          <span class="label label--small">
+            {% if item.down == true %}
+            Since {{ item.down_since | l_date: "%e %b %Y", trmnl.user.locale }} {{ item.down_since | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M:%S" }}
+            {% else %}
+            Since {{ item.up_since | l_date: "%e %b %Y", trmnl.user.locale }} {{ item.up_since | date: "%s" | plus: trmnl.user.utc_offset | date: "%H:%M:%S" }}
+            {% endif %}
+          </span>
+          {% if item.ssl.valid != true %}
+          <span class="label label--small label--outline">
+            SSL not valid
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="title_bar">
+  <img class="image" src="/images/plugins/trmnl--render.svg" />
+  <span class="title">updown.io</span>
+  <span class="instance">
+    {% if error != nil %}
+    {{ error }}
+    {% else %}
+    {% assign count_down = data | where: "down", true | size %}
+    {% if count_down == 0 %}
+    Up and running!
+    {% elsif count_down == 1 %}
+    {{ count_down }} website is currently down!
+    {% else %}
+    {{ count_down }} websites are currently down!
+    {% endif %}
+    {% endif %}
+  </span>
+</div>
