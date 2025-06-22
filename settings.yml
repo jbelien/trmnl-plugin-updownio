@@ -1,23 +1,23 @@
 ---
 strategy: polling
-no_screen_padding: 'no'
-dark_mode: 'no'
-static_data: ''
+no_screen_padding: "no"
+dark_mode: "no"
+static_data: ""
 polling_verb: get
 polling_url: https://updown.io/api/checks?api-key={{ api_key }}
-polling_headers: ''
+polling_headers: ""
 id: 94944
 custom_fields:
-- keyname: author_bio
-  name: About This Plugin
-  field_type: author_bio
-  description: <a href="https://updown.io/" target="_blank">updown.io</a> plugin was created by Jonathan Beliën.
-  github_url: https://github.com/jbelien
-  learn_more_url: https://jbelien.be/
-  email_address: dev@jbelien.mozmail.com
-- keyname: api_key
-  field_type: string
-  name: Read-only API key
-  description: Find this in your <a href="https://updown.io/settings/edit" class="underline" target="_blank">settings</a>.
+  - keyname: author_bio
+    name: About This Plugin
+    field_type: author_bio
+    description: <a href="https://updown.io/" target="_blank">updown.io</a> plugin was created by Jonathan Beliën.
+    github_url: https://github.com/jbelien
+    learn_more_url: https://jbelien.be/
+    email_address: dev@jbelien.mozmail.com
+  - keyname: api_key
+    field_type: string
+    name: Read-only API key
+    description: Find this in your <a href="https://updown.io/settings/edit" class="underline" target="_blank">settings</a>.
 name: Updown.io
 refresh_interval: 15
