@@ -1,4 +1,4 @@
-# updown.io plugin for TRMNL
+# [updown.io](https://updown.io/) plugin for TRMNL
 
 <https://usetrmnl.com/recipes/94944>
 
