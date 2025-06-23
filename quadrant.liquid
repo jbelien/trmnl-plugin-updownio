@@ -1,6 +1,6 @@
-<div class="layout layout--col">
+<div class="layout layout--col" data-list-limit="true" data-list-max-height="150" data-list-hidden-count="true">
   {% assign enabled = data | where: 'enabled', true | sort: 'down_since' %}
-  {% for item in enabled limit: 4 %}
+  {% for item in enabled %}
     <div class="item">
       <div class="meta">
         <span class="index">{{ forloop.index }}</span>
