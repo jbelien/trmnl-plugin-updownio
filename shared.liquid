@@ -33,6 +33,12 @@
       <span class="label label--small label--outline">SSL not valid </span>
       {% endif %}
     </div>
+    <div class="progress-bar progress-bar--xsmall w--full">
+      <div class="content"></div>
+      <div class="track">
+        <div class="fill" style="width: {{ item.uptime }}%"></div>
+      </div>
+    </div>
   </div>
 </div>
 {% endtemplate %}
