@@ -3,7 +3,7 @@
   <div class="columns" data-overflow-max-cols="2" data-overflow-counter="true">
     <div class="column">
       {% for item in enabled %}
-      {% render 'check' with item:item, index:forloop.index %}
+        {% render 'check' with item:item, index:forloop.index %}
       {% endfor %}
     </div>
   </div>

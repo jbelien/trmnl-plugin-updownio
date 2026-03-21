@@ -1,7 +1,7 @@
 <div class="layout layout--col" data-overflow="true" data-overflow-max-height="200" data-overflow-counter="true">
   {% assign enabled = data | where: 'enabled', true | sort: 'down_since' %}
   {% for item in enabled %}
-  {% render 'check' with item:item, index:forloop.index %}
+    {% render 'check' with item:item, index:forloop.index %}
   {% endfor %}
 </div>
 {% render 'title_bar' with error:error, data:data %}
